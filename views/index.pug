@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}. Express.js, or simply Express, is a back end web application framework for building RESTful APIs with Node.js, released as free and open-source software under the MIT License. 
+  button(type="button", class="btn btn-secondary", onclick="doBump()") Press Me 
+  div#bump  Bump the count
+
+  script.
+    var count=0;
+    var bump=1;
+    function doBump() {
+      count+=bump;
+      bump+=1;
+      document.getElementById("bump").innerHTML = "Count " + count + " with bump " +bump ;
+    }
+
+  a(href="/Trousers") Link to Trousers

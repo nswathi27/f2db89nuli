@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  - var results = Trousers 
+  div(class="container-fluid")
+    each item,index in results   
+      div(class="row", onclick=`buy(${index})`)
+        div(class="col-sm-2")  #{item.Trouser_Type}
+        div(class="col-sm-2")  #{item.Trouser_size}
+        div(class="col-sm-2")  #{item.Trouser_color}
+  
+  script. 
+    function buy(cost) {
+      alert('You purchased item '+ cost);
+    }
+
+    
+    

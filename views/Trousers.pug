@@ -1,19 +1,16 @@
 extends layout
 
-block content
-  h1= title
-  - var results = Trousers 
-  div(class="container-fluid")
-    each item,index in results   
-      div(class="row", onclick=`buy(${index})`)
-        div(class="col-sm-2")  #{item.Trouser_Type}
-        div(class="col-sm-2")  #{item.Trouser_size}
-        div(class="col-sm-2")  #{item.Trouser_color}
-  
-  script. 
-    function buy(cost) {
-      alert('You purchased item '+ cost);
-    }
+block content 
+    h1= title
+    div.container-fluid
+        div.row
+            each item, index in results
+                div.col-sm-2(onclick=`buy(${index})`) Trouser_Type:#{item["Trouser_Type"]} <br> Trouser_size: #{item["Trouser_size"]} <br> Trouser_color: #{item["Trouser_color"]}
+        
 
-    
-    
+    script. 
+        function buy(cost) {
+            alert('You purchased item '+ cost);
+        }
+
+  

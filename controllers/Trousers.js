@@ -1,8 +1,16 @@
 var Trouser = require('../models/Trousers'); 
  
 // List of all Trousers 
-exports.Trouser_list = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Trouser list'); 
+exports.Trouser_list = async function(req, res) { 
+    try { 
+        theTrousers = await Trouser.find(); 
+        res.send(theTrousers); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+    
 }; 
  
 // for a specific Trouser. 
@@ -24,3 +32,17 @@ exports.Trouser_delete = function(req, res) {
 exports.Trouser_update_put = function(req, res) { 
     res.send('NOT IMPLEMENTED: Trouser update PUT' + req.params.id); 
 }; 
+
+
+// VIEWS 
+// Handle a show all view 
+exports.Trouser_view_all_Page = async function(req, res) { 
+    try{ 
+        theTrousers = await Trouser.find(); 
+        res.render('Trousers', { title: 'Trouser Search Results', results: theTrousers }); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+};

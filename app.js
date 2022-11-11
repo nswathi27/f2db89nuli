@@ -79,7 +79,6 @@ async function recreateDB(){
   let instance3 = new 
   Trouser({Trouser_Type:"Wide leg",  Trouser_size:30, 
   Trouser_color:"Green"}); 
-  
   instance1.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("First Trouser saved") 

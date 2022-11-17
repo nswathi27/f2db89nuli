@@ -1,0 +1,54 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let Trouserid = toShow._id 
+    - let Trouser_Type = toShow.Trouser_Type 
+    - let Trouser_size = toShow.Trouser_size 
+    - let Trouser_color = toShow.Trouser_color 
+    - let actionid = "/resource/Trousers/" + Trouserid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='TrouserAttr mr-3') Trouser ID is: 
+        div #{Trouserid} 
+      div.row 
+        div(class='TrouserAttr mr-3') Trouser Type is: 
+        div #{Trouser_Type} 
+      div.row 
+        div(class='TrouserAttr mr-3') Trouser Size is: 
+        div #{Trouser_size} 
+      div.row 
+        div(class='TrouserAttr mr-3') Trouser Color is: 
+        div #{Trouser_color} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the Trouser collection 
+      window.location.href='/Trousers' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      // Don't need a body for the delete 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/Trousers' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    } 
+ 

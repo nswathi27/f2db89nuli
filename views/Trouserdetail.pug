@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+    h1= title 
+    if(toShow==null)
+        h2  No instance to Detail
+    else
+        - let Trouserid = toShow._id 
+        - let Trouser_type = toShow.Trouser_Type 
+        - let Trousercolor = toShow.Trouser_color
+        - let Trousersize = toShow.Trouser_size
+        div 
+            div.row 
+                div(class='TrouserAttr mr-3') Trouser ID is: 
+                div #{Trouserid} 
+            div.row 
+                div(class='TrouserAttr mr-3') Trouser Type is: 
+                div #{Trouser_type} 
+            div.row 
+                div(class='TrouserAttr mr-3') Trouser Size is: 
+                div #{Trousersize} 
+            div.row 
+                div(class='TrouserAttr mr-3') Trouser Color is: 
+                div #{Trousercolor} 

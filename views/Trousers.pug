@@ -2,11 +2,14 @@ extends layout
 
 block content 
     h1= title
+    - let create = `dispatch(\"/Trousers/create\")` 
     button.btn( class="btn-primary ml-1", onclick= create) Create 
     div.container-fluid
          div(class="row m-1") 
             each item, index in results
                 - let destination = `dispatch(\"/Trousers/update?id=${item._id}\")` 
+                - let detail = `dispatch(\"/Trousers/detail?id=${item._id}\")` 
+                - let deleteItem = `dispatch(\"/Trousers/delete?id=${item._id}\")` 
                 div.col-sm-2(onclick=`buy(${index})`) Trouser_Type:#{item["Trouser_Type"]} <br> Trouser_size: #{item["Trouser_size"]} <br> Trouser_color: #{item["Trouser_color"]}
 
                 p

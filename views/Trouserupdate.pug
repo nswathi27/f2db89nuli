@@ -15,13 +15,13 @@ block content
   form(id='TrouserForm', action=actionid, method="PUT")
    div.form-group
     label.TrouserAttr(for='Trouser_Type') Trouser Type
-    input#Trouser_Type(type='text', name='Trouser_Type')
+    input#Trouser_Type(type='text', name='Trouser_Type',value=Trouser_Type)
    div.form-group
     label.TrouserAttr(for='Trouser_size') Trouser size
-    input#Trouser_size(type='number', name='Trouser_size')
+    input#Trouser_size(type='number', name='Trouser_size',value=Trouser_size)
    div.form-group
     label.TrouserAttr(for='Trouser_color') Trouser Color
-    input#Trouser_color(type='text', name='Trouser_color')
+    input#Trouser_color(type='text', name='Trouser_color',value=Trouser_color)
    input(type="submit")
   script.
     document.forms['TrouserForm'].addEventListener('submit', (event) => {
